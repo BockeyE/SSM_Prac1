@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+
+        <setting name="mapUnderscoreToCamelCase" value="true" />
+
+        <!--自动映射数据表字段与对象的属性-->
+        <setting name="autoMappingBehavior" value="FULL"/>
+    </settings>
+
+    <!--dao包自动取别名-->
+    <typeAliases>
+        <package name="com.erp.bean"/>
+    </typeAliases>
+
+    <!--配置分页插件-->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageHelper">
+            <property name="reasonable" value="true"/>
+        </plugin>
+    </plugins>
+
+    <mappers>
+        <package name="classpath:com.erp.dao.**"/>
+    </mappers>
+</configuration>
